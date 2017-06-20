@@ -1,0 +1,44 @@
+# A shell profile file
+#
+# Author: XJP09_HK <jianping_xie@aliyun.com>
+# Last change: 2017-06-20
+#
+# Usage:
+#   edit your private shell profile(.bashrc, .zshrc etc), then insert 'source ${THIS_FILE}'
+
+# Common alias
+alias cat='cat -entv'
+alias curlf='curl -OL'
+alias grep='grep -i --color'
+alias ll='ls -lhsiFG'
+alias lla='ll -a'
+alias ln='ln -sv'
+alias mv='mv -iv'
+alias rm='rm -iv'
+alias rmf='rm -rfv'
+alias targz='tar -xzvf'
+alias tarbz='tar -xjvf'
+alias vimode='set -o vi'
+alias emacsmode='set -o emacs'
+alias df='df -h'
+alias ping='ping -c 10'
+alias psf='ps aux | grep'
+
+# Network alias
+alias ip="ifconfig en0 | grep 'inet ' | awk '{print \$2}'"
+
+# Admin alias
+alias updatedb='sudo /usr/libexec/locate.updatedb'
+
+# Linux -> Mac command transfer
+if [ `uname -s` = 'Darwin' ] ;then
+
+alias ldd='otool'
+alias strace='dtruss'
+
+fi
+
+# History config
+export HISTFILESIZE=10000
+export HISTSIZE=10000
+export HISTTIMEFORMAT=`whoami`" : %Y %h/%d - %H:%M:%S "
