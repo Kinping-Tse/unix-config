@@ -1,6 +1,6 @@
 # A shell profile file
 #
-# Author: XJP09_HK <jianping_xie@aliyun.com>
+# Author:      XJP09_HK <jianping_xie@aliyun.com>
 # Last change: 2017-06-20
 #
 # Usage:
@@ -9,6 +9,8 @@
 # Common alias
 alias cat='cat -entv'
 alias curlf='curl -OL'
+alias df='df -h'
+alias dates='date +"%Y-%m-%d %H:%M:%S"'
 alias grep='grep -i --color'
 alias ll='ls -lhsiFG'
 alias lla='ll -a'
@@ -20,20 +22,29 @@ alias targz='tar -xzvf'
 alias tarbz='tar -xjvf'
 alias vimode='set -o vi'
 alias emacsmode='set -o emacs'
-alias df='df -h'
-alias ping='ping -c 10'
+
+# Process alias
 alias psf='ps aux | grep'
+alias psfr='ps aux| grep " R" | grep -v grep'
+alias wr='watch "ps aux| grep \" R\" | grep -v grep"'
 
 # Network alias
-alias ip="ifconfig en0 | grep 'inet ' | awk '{print \$2}'"
+alias ip="ifconfig | grep 'inet ' | awk '{print \$2}'"
+alias ping='ping -c 10'
 
-# Admin alias
-alias updatedb='sudo /usr/libexec/locate.updatedb'
+# Docker alias
+alias di='docker images'
+alias dl='docker logs'
+alias dr='docker run'
+alias dri='docker run --rm -it'
+alias de='docker exec -it'
+alias dp='docker ps'
 
 # Linux -> Mac command transfer
 if [ `uname -s` = 'Darwin' ] ;then
 
 alias ldd='otool'
+alias updatedb='sudo /usr/libexec/locate.updatedb'
 alias strace='dtruss'
 
 fi

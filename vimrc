@@ -22,5 +22,7 @@ set mouse=
 set nobackup
 set number
 set paste
+set ruler
 set shiftwidth=4
 set tabstop=4
+
