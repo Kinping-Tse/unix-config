@@ -23,6 +23,8 @@ alias tarbz='tar -xjvf'
 alias vimode='set -o vi'
 alias emacsmode='set -o emacs'
 
+#alias dstat='dstat -cdlmnpsy'
+
 # Process alias
 alias psf='ps aux | grep'
 alias psfr='ps aux| grep " R" | grep -v grep'

@@ -17,6 +17,7 @@ set expandtab
 set fileformat=unix
 set fileformats=unix,dos
 set fileencoding=utf-8
+" set foldmethod=indent
 set ignorecase
 set mouse=
 set nobackup
@@ -26,3 +27,9 @@ set ruler
 set shiftwidth=4
 set tabstop=4
 
+" Check PHP syntax (CTRL-L)
+autocmd FileType php noremap <C-L> :!/usr/bin/env php -l %<CR>
+
+" PHP code complete ctrl+x,ctrl+o
+" filetype plugin on
+" autocmd FileType php set omnifunc=phpcomplete#CompletePHP
