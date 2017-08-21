@@ -6,6 +6,9 @@
 # Usage:
 #   edit your private shell profile(.bashrc, .zshrc etc), then insert 'source ${THIS_FILE}'
 
+# Include autojump
+[[ -f /usr/local/etc/profile.d/autojump.sh ]] && . /usr/local/etc/profile.d/autojump.sh
+
 # Common alias
 alias cat='cat -entv'
 alias curlf='curl -OL'
@@ -31,8 +34,9 @@ alias psfr='ps aux| grep " R" | grep -v grep'
 alias wr='watch "ps aux| grep \" R\" | grep -v grep"'
 
 # Network alias
-alias ip="ifconfig | grep 'inet ' | awk '{print \$2}'"
+alias ips="ifconfig | grep 'inet ' | awk '{print \$2}'"
 alias ping='ping -c 10'
+alias netstatl='netstat -nt4pl | grep -i listen'
 
 # Docker alias
 alias di='docker images'
@@ -41,6 +45,7 @@ alias dr='docker run'
 alias dri='docker run --rm -it'
 alias de='docker exec -it'
 alias dp='docker ps'
+alias dpf="docker ps --format 'table{{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}'"
 
 # Linux -> Mac command transfer
 if [ `uname -s` = 'Darwin' ] ;then
@@ -49,9 +54,23 @@ alias ldd='otool'
 alias updatedb='sudo /usr/libexec/locate.updatedb'
 alias strace='dtruss'
 
+alias netstatl='netstat -an -f inet -p tcp | grep -i listen'
+
 fi
 
 # History config
 export HISTFILESIZE=10000
 export HISTSIZE=10000
 export HISTTIMEFORMAT=`whoami`" : %Y %h/%d - %H:%M:%S "
+
+# Man with color
+man() {
+    env LESS_TERMCAP_mb=$'\E[01;3m' \
+    LESS_TERMCAP_md=$'\E[01;38;5;74m' \
+    LESS_TERMCAP_me=$'\E[0m' \
+    LESS_TERMCAP_se=$'\E[0m' \
+    LESS_TERMCAP_so=$'\E[38;5;246m' \
+    LESS_TERMCAP_ue=$'\E[0m' \
+    LESS_TERMCAP_us=$'\E[04;38;5;146m' \
+    man "$@"
+}
