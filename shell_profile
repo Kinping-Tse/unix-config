@@ -19,8 +19,9 @@ alias ll='ls -lhsiFG'
 alias lla='ll -a'
 alias ln='ln -sv'
 alias mv='mv -iv'
-alias rm='rm -iv'
-alias rmf='rm -rfv'
+alias rm="echo \"This command is forbidden!!!\nYou can try 'delete'.\""
+alias delete='\rm -riv'
+alias deletef='delete -f'
 alias targz='tar -xzvf'
 alias tarbz='tar -xjvf'
 alias vimode='set -o vi'
@@ -49,6 +50,8 @@ alias dpf="docker ps --format 'table{{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}
 
 # Linux -> Mac command transfer
 if [ `uname -s` = 'Darwin' ] ;then
+
+alias delete='f() { mv "$@" ~/.Trash }; f'
 
 alias ldd='otool'
 alias updatedb='sudo /usr/libexec/locate.updatedb'
