@@ -19,8 +19,15 @@ set fileformats=unix,dos
 set fileencoding=utf-8
 " set foldmethod=indent
 set ignorecase
+" set list
+if version >= 800
+    set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:␣
+else
+    set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+endif
 set mouse=
 set nobackup
+set noundofile
 set number
 set paste
 set ruler

@@ -7,7 +7,8 @@
 #   edit your private shell profile(.bashrc, .zshrc etc), then insert 'source ${THIS_FILE}'
 
 # Include autojump
-[[ -f /usr/local/etc/profile.d/autojump.sh ]] && . /usr/local/etc/profile.d/autojump.sh
+[[ -z "$AUTOJUMP_PREFIX" ]] && AUTOJUMP_PREFIX=${HOME}/.autojump
+[[ -f $AUTOJUMP_PREFIX/etc/profile.d/autojump.sh ]] && . $AUTOJUMP_PREFIX/etc/profile.d/autojump.sh
 
 # Common alias
 alias cat='cat -entv'
@@ -47,6 +48,9 @@ alias dri='docker run --rm -it'
 alias de='docker exec -it'
 alias dp='docker ps'
 alias dpf="docker ps --format 'table{{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}'"
+
+# Gentoo alias
+alias em='emerge'
 
 # Linux -> Mac command transfer
 if [ `uname -s` = 'Darwin' ] ;then
