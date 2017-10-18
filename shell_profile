@@ -15,11 +15,11 @@ alias curlf='curl -OL'
 alias df='df -h'
 alias dates='date +"%Y-%m-%d %H:%M:%S"'
 alias grep='grep -i --color'
-alias ll='ls -lhsiFG'
+alias ll='ls -lhsiF --color=auto'
 alias lla='ll -a'
 alias ln='ln -sv'
 alias mv='mv -iv'
-alias rm="echo \"This command is forbidden!!!\nYou can try 'delete'.\""
+alias rm="echo -e \"This command is forbidden!!!\nYou can try 'delete'.\""
 alias delete='\rm -riv'
 alias deletef='delete -f'
 alias targz='tar -xzvf'
@@ -37,7 +37,7 @@ alias wr='watch "ps aux| grep \" R\" | grep -v grep"'
 # Network alias
 alias ips="ifconfig | grep 'inet ' | awk '{print \$2}'"
 alias ping='ping -c 10'
-alias netstatl='netstat -nt4pl | grep -i listen'
+alias netstatl='sudo netstat -nt4pl | grep -i listen'
 
 # Docker alias
 alias di='docker images'
@@ -51,6 +51,7 @@ alias dpf="docker ps --format 'table{{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}
 # Linux -> Mac command transfer
 if [ `uname -s` = 'Darwin' ] ;then
 
+alias ll='ls -lhsiFG'
 alias delete='f() { mv "$@" ~/.Trash }; f'
 
 alias ldd='otool'
