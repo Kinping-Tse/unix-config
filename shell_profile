@@ -12,6 +12,7 @@
 
 # Common alias
 alias cat='cat -entv'
+alias mkcdir='_() { mkdir "$1" && cd "$1" }; _'
 alias curlf='curl -OL'
 alias df='df -h'
 alias dates='date +"%Y-%m-%d %H:%M:%S"'
@@ -50,13 +51,13 @@ alias dp='docker ps'
 alias dpf="docker ps --format 'table{{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}'"
 
 # Gentoo alias
-alias em='emerge'
+alias em='sudo emerge'
 
 # Linux -> Mac command transfer
 if [ `uname -s` = 'Darwin' ] ;then
 
 alias ll='ls -lhsiFG'
-alias delete='f() { mv "$@" ~/.Trash }; f'
+alias delete='_() { mv "$@" ~/.Trash }; _'
 
 alias ldd='otool'
 alias updatedb='sudo /usr/libexec/locate.updatedb'
