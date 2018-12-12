@@ -12,7 +12,7 @@
 
 # Common alias
 alias cat='cat -entv'
-alias mkcdir='_() { mkdir "$1" && cd "$1" }; _'
+alias mkcdir='_f() { mkdir "$1" && cd "$1" }; _f'
 alias curlf='curl -OL'
 alias df='df -h'
 alias dates='date +"%Y-%m-%d %H:%M:%S"'
@@ -57,7 +57,7 @@ alias em='sudo emerge'
 if [ `uname -s` = 'Darwin' ] ;then
 
 alias ll='ls -lhsiFG'
-alias delete='_() { mv "$@" ~/.Trash }; _'
+alias delete='_f() { mv "$@" ~/.Trash }; _f'
 
 alias ldd='otool'
 alias updatedb='sudo /usr/libexec/locate.updatedb'
