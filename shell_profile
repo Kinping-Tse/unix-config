@@ -61,7 +61,7 @@ alias delete='_f() { mv "$@" ~/.Trash }; _f'
 
 alias ldd='otool'
 alias updatedb='sudo /usr/libexec/locate.updatedb'
-alias strace='dtruss'
+alias strace='sudo dtruss'
 
 alias netstatl='netstat -an -f inet -p tcp | grep -i listen'
 
