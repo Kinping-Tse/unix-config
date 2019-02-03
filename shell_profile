@@ -39,7 +39,7 @@ alias wr='watch "ps aux| grep \" R\" | grep -v grep"'
 # Network alias
 alias ips="ifconfig | grep 'inet ' | awk '{print \$2}'"
 alias ping='ping -c 10'
-alias netstatl='sudo netstat -nt4pl | grep -i listen'
+alias netstatl='sudo netstat -ntpl | grep -i listen'
 
 # Docker alias
 alias di='sudo docker images'
@@ -63,7 +63,7 @@ alias ldd='otool'
 alias updatedb='sudo /usr/libexec/locate.updatedb'
 alias strace='sudo dtruss'
 
-alias netstatl='netstat -an -f inet -p tcp | grep -i listen'
+alias netstatl='netstat -an -p tcp | grep -i listen'
 
 fi
 
